@@ -49,9 +49,9 @@ class roundcube($backend='sqlite',
 
         # Parameter checking
     if $roundcube::autoupdate == true {
-        $roundcube::package_ensure = latest
+        $package_ensure = latest
     } elsif $roundcube::autoupdate == false {
-        $roundcube::package_ensure = present
+        $package_ensure = present
     } else {
         fail('autoupdate parameter must be true or false')
     }
