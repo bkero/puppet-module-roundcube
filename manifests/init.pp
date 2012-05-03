@@ -17,39 +17,42 @@
 #
 # Sample Usage:
 #   Simple usage:
-#   class { "roundcube" }
+#   class { 'roundcube' }
 #
 #   Complex usage:
-#   class { "roundcube":
-#       backend => "pgsql",
-#       db_hostname => "localhost",
-#       db_username => "roundcube",
-#       db_password => "hunter2",
+#   class { 'roundcube':
+#       backend => 'pgsql',
+#       db_hostname => 'localhost',
+#       db_username => 'roundcube',
+#       db_password => 'hunter2',
 #       autoupdate  => true,
 #       plugins     => true,
 #       extras      => true,
 #       manage_http => false,
-#       
 #
 # [Remember: No empty lines between comments and class definition]
-class roundcube($backend="sqlite",
+class roundcube($backend='sqlite',
                 $plugins=false,
                 $extras=false,
                 $manage_http=true,
                 $autoupdate=false,
-                $db_hostname="UNSET",
-                $db_username="UNSET",
-                $db_password="UNSET",
+                $db_hostname='UNSET',
+                $db_username='UNSET',
+                $db_password='UNSET',
     )
 {
     include roundcube::packages
 
+    if $foundcube::manage_http == true {
+        include roundcube::webserver
+    }
+
         # Parameter checking
-    if $autoupdate == true {
-        $package_ensure = latest
-    } elsif $autoupdate == false {
-        $package_ensure = present
+    if $roundcube::autoupdate == true {
+        $roundcube::package_ensure = latest
+    } elsif $roundcube::autoupdate == false {
+        $roundcube::package_ensure = present
     } else {
-        fail("autoupdate parameter must be true or false")
+        fail('autoupdate parameter must be true or false')
     }
 }
