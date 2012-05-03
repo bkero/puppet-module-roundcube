@@ -33,8 +33,7 @@ switch ($dbtype) {
  default:
    if ($dbport != '') $dbport=":$dbport";
    if ($dbserver == '') $dbserver="localhost";
-   $rcmail_config['db_dsnw'] = "$dbtype://$dbuser:$dbpass@$dbserver$dbport/$dbna
-me";
+   $rcmail_config['db_dsnw'] = "$dbtype://$dbuser:$dbpass@$dbserver:$dbport/$dbname";
    break;
  }
 
