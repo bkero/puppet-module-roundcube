@@ -10,12 +10,12 @@ class roundcube::packages inherits roundcube {
             ensure => $roundcube::package_ensure
         }
     }
-    if $roundcube::backend == 'mysql' {
+    if $roundcube::db_backend == 'mysql' {
         package { ['mysql-server', 'roundcube-mysql']:
             ensure => $roundcube::package_ensure
         }
     }
-    if $roundcube::backend == 'pgsql' {
+    if $roundcube::db_backend == 'pgsql' {
         package { ['postgresql', 'roundcube-pgsql']:
             ensure => $roundcube::package_ensure
         }
