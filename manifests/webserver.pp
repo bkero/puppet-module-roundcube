@@ -4,7 +4,7 @@ class roundcube::webserver inherits roundcube {
     }
     file {
         'vhost':
-            content => template('roundcube/vhost.conf'),
+            content => template('roundcube/vhost.conf.erb'),
             name    => '/etc/apache2/sites-available/roundcube.conf',
             require => Package['apache'];
         'vhost-enable':
