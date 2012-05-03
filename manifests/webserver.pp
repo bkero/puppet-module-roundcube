@@ -4,7 +4,7 @@ class roundcube::webserver inherits roundcube {
     }
     file {
         'vhost':
-            content => template('puppet:///modules/roundcube/vhost.conf'),
+            content => template('roundcube/vhost.conf'),
             name    => '/etc/apache2/sites-available/roundcube.conf',
             require => Package['apache'];
         'vhost-enable':
