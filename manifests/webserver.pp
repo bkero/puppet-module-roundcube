@@ -1,4 +1,4 @@
-class roundcube::webserver {
+class roundcube::webserver inherits roundcube {
     package { 'apache':
         ensure => $roundcube::package_ensure
     }
