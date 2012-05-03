@@ -28,7 +28,7 @@ $dbtype="<%=db_backend%>";
 
 switch ($dbtype) {
  case "sqlite":
-l_config['db_dsnw'] = "sqlite:///$basepath/$dbname?mode=0640";
+   $rcmail_config['db_dsnw'] = "sqlite:///$basepath/$dbname?mode=0640";
    break;
  default:
    if ($dbport != '') $dbport=":$dbport";
@@ -52,7 +52,7 @@ $rcmail_config['db_max_length'] = 512000;  // 500K
 $rcmail_config['db_persistent'] = FALSE;
 
 
-l_config['db_table_users'] = 'users';
+$rcmail_config['db_table_users'] = 'users';
 $rcmail_config['db_table_identities'] = 'identities';
 $rcmail_config['db_table_contacts'] = 'contacts';
 $rcmail_config['db_table_contactgroups'] = 'contactgroups';
