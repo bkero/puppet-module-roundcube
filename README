@@ -1,3 +1,8 @@
 roundcube
 
 This is the roundcube module.
+
+Notes:
+    There is a problem in Ubuntu [1] which prevents roundcube from using the sqlite backend.  If you encounter an error in /var/log/apache2/error_log similar to:
+        MDB2 Error: not found (-4): [Error message: extension sqlite is not compiled into PHP
+    please see bug https://bugs.launchpad.net/ubuntu/+source/roundcube/+bug/900190 for resolution
