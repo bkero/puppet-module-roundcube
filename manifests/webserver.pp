@@ -19,7 +19,7 @@ class roundcube::webserver inherits roundcube {
     service { 'apache2':
         hasstatus  => true,
         hasrestart => true,
-        enabled    => true,
+        enable     => true,
         ensure     => running,
     }
 }
