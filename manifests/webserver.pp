@@ -6,6 +6,7 @@ class roundcube::webserver inherits roundcube {
         'vhost':
             content => template('roundcube/vhost.conf.erb'),
             name    => '/etc/apache2/sites-available/roundcube.conf',
+            notify  => Service['apache2'],
             require => Package['apache2'];
         'vhost-enable':
             ensure  => link,
@@ -13,5 +14,12 @@ class roundcube::webserver inherits roundcube {
             target  => '/etc/apache2/sites-available/roundcube.conf',
             mode    => '0644',
             require => File['vhost'];
+    }
+
+    service { 'apache2':
+        hasstatus  => true,
+        hasrestart => true,
+        enabled    => true,
+        ensure     => running,
     }
 }
