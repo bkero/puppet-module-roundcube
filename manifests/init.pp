@@ -43,7 +43,7 @@ class roundcube($backend='sqlite',
 {
     include roundcube::packages
 
-    if $foundcube::manage_http == true {
+    if $roundcube::manage_http == true {
         include roundcube::webserver
     }
 
