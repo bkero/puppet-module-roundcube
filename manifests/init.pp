@@ -79,6 +79,6 @@ class roundcube($plugins=false,
     file { 'db.inc.php':
         ensure  => present,
         name    => '/etc/roundcube/db.inc.php',
-        content => templates('roundcube/db.inc.php.erb'),
+        content => template('roundcube/db.inc.php.erb'),
     }
 }
