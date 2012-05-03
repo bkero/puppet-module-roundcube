@@ -45,9 +45,6 @@ class roundcube($backend="sqlite",
     include roundcube::packages
 
         # Parameter checking
-    if ! ($ensure in ['running', 'stopped']) {
-        fail("ensure parameter must be running or stoppd")
-    }
     if $autoupdate == true {
         $package_ensure = latest
     } elsif $autoupdate == false {
