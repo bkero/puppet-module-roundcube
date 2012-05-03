@@ -9,6 +9,12 @@
 #   manage_http: Boolean to manage a http service (default: true)
 #   autoupdate: Boolean to automatically update (default: false)
 #
+# Optional webserver parameters (only useful with manage_http => true)
+#   server_name: String to enter a vhost servername (default: mail.bke.ro)
+#   server_port: Port to listen on (default: 80)
+#
+#   NOTE: All parameters are optional
+#
 # Actions:
 #   Installs, configures, and manages roundcube webmail service
 #       (and optionally a http service beneath)
@@ -39,6 +45,8 @@ class roundcube($backend='sqlite',
                 $db_hostname='UNSET',
                 $db_username='UNSET',
                 $db_password='UNSET',
+                $server_name='mail.bke.ro',
+                $server_port='80'
     )
 {
     include roundcube::packages
