@@ -76,7 +76,9 @@ class roundcube($plugins=false,
         fail('autoupdate parameter must be true or false')
     }
 
-    file { "db.inc.php":
-        content => templates("roundcube/db.inc.php.erb"),
+    file { 'db.inc.php':
         ensure  => present,
+        name    => '/etc/roundcube/db.inc.php',
+        content => templates('roundcube/db.inc.php.erb'),
+    }
 }
