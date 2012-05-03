@@ -19,12 +19,12 @@ abase ! */
 
 /* include_once("/etc/roundcube/debian-db.php"); */
 
-$dbuser=<%=db_username%>
-$dbpass=<%=db_password%>
-$dbname=<%=db_dbname%>
-$dbserver=<%=db_hostname%>
-$dbport=<%=db_port%>
-$dbtype=<%=db_backend%>
+$dbuser="<%=db_username%>";
+$dbpass="<%=db_password%>";
+$dbname="<%=db_dbname%>";
+$dbserver="<%=db_hostname%>";
+$dbport="<%=db_port%>";
+$dbtype="<%=db_backend%>";
 
 switch ($dbtype) {
  case "sqlite":
