@@ -21,7 +21,7 @@ class roundcube::packages inherits roundcube {
         }
     }
 
-    if $roundcube:;db_backend == 'sqlite' {
+    if $roundcube::db_backend == 'sqlite' {
         package { 'php-mdb2-driver-sqlite']:
             ensure => $roundcube::package_ensure
         }
