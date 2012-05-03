@@ -36,13 +36,13 @@ class roundcube($backend="sqlite",
                 $plugins=false,
                 $extras=false,
                 $manage_http=true,
-                $ensure="running",
                 $autoupdate=false,
                 $db_hostname="UNSET",
                 $db_username="UNSET",
                 $db_password="UNSET",
     )
 {
+    include roundcube::packages
 
         # Parameter checking
     if ! ($ensure in ['running', 'stopped']) {
@@ -54,22 +54,5 @@ class roundcube($backend="sqlite",
         $package_ensure = present
     } else {
         fail("autoupdate parameter must be true or false")
-    }
-
-    package { "roundcube": ensure => $package_ensure }
-    if $plugins == true {
-        package { "roundcube-plugins": ensure => $package_ensure }
-    }
-    if $extras == true {
-        package { "roundcube-plugins-extra": ensure => $package_ensure }
-    }
-
-    if $backend == "mysql" {
-        package { ["mysql-server", "roundcube-mysql"]:
-            ensure => $package_ensure }
-    }
-    if $backend == "pgsql" {
-        package { ["postgresql", "roundcube-pgsql"]:
-            ensure => $package_ensure }
     }
 }
